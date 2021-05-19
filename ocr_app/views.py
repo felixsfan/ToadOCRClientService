@@ -34,8 +34,8 @@ def register(request):
     # 密码
     password = params["password"]
     # 客户端生成的验证码
-    # client_vcode = params["client_vcode"]
-    client_vcode = '12345'
+    client_vcode = params["client_vcode"]
+    # client_vcode = '12345'
     # 用户填写的验证码
     user_verify_code = params["user_verify_code"]
     # 请求OCR http服务端
