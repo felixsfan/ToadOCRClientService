@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="23929190-b68e-40ea-8455-84114ee03ae9" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="ocr_app_appinfo: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sA2ZUN0lKKUv02f5tHohRUhB6t" />
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/web/js" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\ocr_server\static\web\js" />
+      <recent name="E:\workspace\ocr_server\static" />
+      <recent name="E:\workspace\ocr_server\static\images" />
+      <recent name="E:\workspace\ocr_server" />
+      <recent name="E:\workspace\ocr_server\templates\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\workspace\ocr_server\static\sources" />
+      <recent name="E:\workspace\ocr_server\templates" />
+      <recent name="E:\workspace\ocr_server\static" />
+      <recent name="E:\workspace\ocr_server\static\images\share" />
+      <recent name="E:\workspace\ocr_server\ocr_app" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ocr_server" type="Python.DjangoServer" factoryName="Django server">
+      <module name="ocr_server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="ocr_server.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/ocr_app/hello/" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="23929190-b68e-40ea-8455-84114ee03ae9" name="Default Changelist" comment="" />
+      <created>1620301128825</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620301128825</updated>
+      <workItem from="1620301130691" duration="6644000" />
+      <workItem from="1620362041771" duration="3818000" />
+      <workItem from="1620377952737" duration="3911000" />
+      <workItem from="1620382681018" duration="4643000" />
+      <workItem from="1620394945306" duration="1552000" />
+      <workItem from="1620397766452" duration="227000" />
+      <workItem from="1620456671621" duration="602000" />
+      <workItem from="1620466897479" duration="6108000" />
+      <workItem from="1620538457234" duration="4421000" />
+      <workItem from="1620645720340" duration="797000" />
+      <workItem from="1620795890259" duration="11002000" />
+      <workItem from="1620815093221" duration="3231000" />
+      <workItem from="1620818732127" duration="2820000" />
+      <workItem from="1620826641940" duration="431000" />
+      <workItem from="1620831982561" duration="803000" />
+      <workItem from="1620834435848" duration="700000" />
+      <workItem from="1620869365913" duration="5070000" />
+      <workItem from="1620876059340" duration="378000" />
+      <workItem from="1620888673448" duration="92000" />
+      <workItem from="1620997545035" duration="3050000" />
+      <workItem from="1621002086926" duration="752000" />
+      <workItem from="1621056664046" duration="12423000" />
+      <workItem from="1621069948800" duration="1407000" />
+      <workItem from="1621159376165" duration="5753000" />
+      <workItem from="1621170344449" duration="312000" />
+      <workItem from="1621173189480" duration="195000" />
+      <workItem from="1621235090267" duration="1551000" />
+      <workItem from="1621236981546" duration="5379000" />
+      <workItem from="1621245122630" duration="4946000" />
+      <workItem from="1621257421648" duration="9630000" />
+      <workItem from="1621301456050" duration="21824000" />
+      <workItem from="1621324300718" duration="601000" />
+      <workItem from="1621329902396" duration="1219000" />
+      <workItem from="1621337842508" duration="9602000" />
+      <workItem from="1621347504845" duration="1114000" />
+      <workItem from="1621388934835" duration="27982000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

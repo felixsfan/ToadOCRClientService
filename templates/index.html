@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="copyright" content="http://vjp.suvvm.work/getting-start/tags-map/"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>免费在线文字识别－OCRServer</title>
+	<meta name="keywords" content="图片文字识别"/>
+	<link rel="icon" href="/static/images/logo.png"/>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/sources/magnificPopup.css">
+	<link rel="stylesheet" type="text/css" href="/static/sources/lazy.css">
+
+</head>
+<body>
+	<div id="header">
+		<div class="row">
+			<div class="span2">
+				<a href="javascript:if(confirm('欢迎使用orc文字识别'))window.location.href='/ocr_app/hello/'" id="logo" title="ocr文字识别">
+{#					<img src="/static/images/logo.png" alt="ocr" class="responsive-img">#}
+                    <div><h1>ToadOCR</h1></div>
+				</a>
+			</div>
+			<div class="span10" style="margin-top: 21px;"></div>
+		</div>
+        <div class="app_id" style="position:absolute;right:50px;top:26px; width:140px; height:50px ; text-align: center">
+             <a class="huo" href="/ocr_app/userlogin">控制台</a>
+        </div>
+	</div>
+	<div id="content">
+		<div id="page-header">
+			<div class="row">
+				<div class="span12 whitebg">
+					<h1 class="slogon">
+						在线文字识别－ToadOCR
+					</h1>
+					<div class="process-builder">
+						<ul class="fixed">
+							<li class="color-shade-2">
+								<img class="fixedImg" src="/static/images/upload.png">
+								<div class="process-description">
+									<h3 class="prodesc">
+										<strong>上传图片</strong>
+									</h3>
+								</div>
+							</li>
+							<li class="color-shade-3">
+								<img class="fixedImg" src="/static/images/start.png">
+								<div class="process-description">
+									<h3 class="prodesc">
+										<strong>开始识别</strong>
+									</h3>
+								</div>
+							</li>
+							<li class="color-shade-1">
+								<img class="fixedImg" src="/static/images/result.png">
+								<div class="process-description">
+									<h3 class="prodesc">
+										<strong>获得结果</strong>
+									</h3>
+								</div>
+							</li>
+							<li class="color-shade-5">
+								<img class="fixedImg" src="/static/images/overlay.png">
+								<div class="process-description">
+									<h3 class="prodesc">
+										<strong>识别校正</strong>
+									</h3>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form class="form-horizontal" id="ocrForm">
+			<input name="__RequestVerificationToken" type="hidden" value="unknown" />
+			<fieldset>
+        <div class="row">
+          <div class="span12">
+            <h3 class="headline">
+            <span>基于神经网络的文字识别演示<i class="mobileHidden"></i></span>
+            </h3>
+          </div>
+
+          <div class="span12">
+            <div class="span4">
+              <p class="diyLabel">上传文件 ( png / jpg )</p>
+            </div>
+            <div class="span8">
+                <input type="file" id="imageFile1" class="form-control choose" onchange="Preview()">
+            </div>
+          </div>
+
+          <div class="span12 thirdrow">
+            <div class="span4">
+                <p class="diyLabel">填写秘钥</p>
+            </div>
+            <div class="span4">
+                <label class="diyLabel" for="appid">appid:</label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input style="display:inline" type="text" id="appid">
+            </div>
+            <div class="span4">
+                <label class="diyLabel" for="appsecret">appsecret:</label>
+                <input style="display:inline" type="text" id="appsecret">
+            </div>
+          </div>
+
+          <div class="span12 thirdrow">
+            <div class="span4">
+                <p class="diyLabel">选择神经网络算法</p>
+            </div>
+            <div class="span4">
+              <select id="ocrAlgorithm" class="form-control valid selection">
+                <option value="snn" selected="selected">SNN脉冲神经网络</option>
+                <option value="cnn">CNN卷积神经网络</option>
+              </select>
+            </div>
+
+            <div class="span2" id="btnStartOCR"><a class="btn btn-large btn-green-light" onclick="doStart()">开始</a></div>
+            <div class="span2" id="btnCancel"><a class="btn btn-large btn-green-light" onclick="Clear()">重置</a></div>
+          </div>
+
+          <div id="sucOrErrMesgMainDiv" class="span12" style="display:none">
+            <div id="sucOrErrMesgDiv" class="alert alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span id="sucOrErrMessage"></span>
+            </div>
+          </div>
+
+          <div id="animatedProgress" class="span12" style="display: none">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 progress progress-striped active">
+                  <div class="progress-bar" style="width: 100%"></div>
+              </div>
+          </div>
+
+          <div style=" clear:both; margin-top:50px !important;"></div>
+
+          <div class="span12">
+            <div id="imagePanel" class="span5 borderspanblue">
+              <div class="imagearea">
+                <h3>图片预览</h3>
+              </div>
+              <div class="panel-body">
+                <div id="filedrag" style="height: 80%; width:95%; display: block">
+                	你也可以把图片拖拽到这里
+                </div>
+                <img id="previewImage" class="img-responsive" style="float:left; height:80%; width:95%; display: block" />
+              </div>
+              <div>
+                <h4 id="previewText" style="color: #337ab7; margin: 10px; font-size: 14px;"></h4>
+              </div>
+            </div>
+
+            <div class="span2" style="padding-right: 12px;">
+              </br>
+            </div>
+
+            <div id="resultPanel" class="span5 borderspan" >
+              <div class="resultarea">
+                <h3>识别结果</h3>
+              </div>
+                <div>
+                <textarea class="form-control" cols="20" id="txtAreaParsedResult" name="parsedResult" rows="2" style="height:102px; width:85%; margin-left:28px;"></textarea>
+                </div>
+              <div>
+                <h4 onclick="resultCopy(this)" id="copyText" style="color: #337ab7; font-size: 14px; float: right; margin-right: 30px; cursor: pointer;">复制</h4>
+                <h4 id="copySuccess" style="color: #3c763d; font-size: 14px; float: right; margin-right: 15px; font-style: italic;"></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+		</form><br/><br/>
+		<div class="row">
+      <div class="span12">
+          <h3 class="headline">
+              <span>如何使用？－ ToadOCR</span>
+          </h3>
+      </div>
+      <a title="ToadOCR文字识别" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/'">ToadOCR</a>
+            通过使用Opencv对用户上传的图片进行切片分词处理,切片处理后图片的二进制文件传入到卷积神经网络或者脉冲神经网络进行识别并返回识别的文字。
+      <br />
+
+      我们的OCR服务可以免费使用,只需上传您的图像文件。 OCR软件采用JPG，PNG，唯一的限制是目前只支持英语和数字。
+      <br /><br />
+      您上传的数据是绝对安全的：本站不存储任何数据。
+    </div>
+    <br />
+  </div>
+  <div class="bigborder"></div>
+  <div class="row">
+  	<div class="span12 footer">
+  		<div class="span2 footer-logo">
+    		<a href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/'" title="ToadOCR文字识别">
+					<img src="/static/images/logo.png">
+			</a>
+    	</div>
+    	<div class="span8 footerbody">
+    		<ul class="footer-mes">
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/faq.html'" title="ToadOCR常见问题">FAQ</a></li>
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/feedback.html'" title="ToadOCR交流反馈">交流反馈</a></li>
+					<li><a href="##">免责声明</a></li>
+					<li class="mobileHidden"><a href="http://vjp.suvvm.work/getting-start/tags-map/feedback.html">support@qdu.com</a></li>
+			</ul>
+    	</div>
+			<div class="span2 footershare">
+				<div class="bshare">
+				</div>
+			</div>
+  	</div>
+  </div>
+	<div class="bigborder2"></div>
+	<div class="row">
+		<div class="span12 copyright">
+      <p>© 2021 http://vjp.suvvm.work/<a style="color: #b5b5b5;" href="javascript:if(confirm(''))window.location='http://www.beian.miit.gov.cn/'" target="_blank">鲁ICP备16041389号-3</a></p>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="/static/sources/magnificPopup.js"></script>
+	<script src="/static/sources/lazy.js"></script>
+	<script src="/static/sources/plugins.js"></script>
+	<script src="/static/sources/script.js"></script>
+	<script src="/static/sources/jqueryval.js"></script>
+    <script src="/static/sources/jquery.md5.js"></script>
+</body>
+
+<script>
+    //重置表单
+    function Clear() {
+        document.getElementById('ocrForm').reset();
+        document.getElementById('filedrag').style.display="block";
+        document.getElementById('txtAreaParsedResult').innerHTML="";
+        document.getElementById('previewImage').style.display="none";
+    }
+    //上传图片预览
+    function Preview() {
+        var obj=$("#imageFile1")[0].files[0];
+        var image_pre=window.URL.createObjectURL(obj);
+        document.getElementById('previewImage').style.display="block";
+        $("#previewImage").attr('src',image_pre);
+        document.getElementById('filedrag').style.display="none";
+    }
+    function doStart(){
+        var formData = new FormData();
+        formData.append('net_flag',$('#ocrAlgorithm').val());
+        formData.append('file',$('#imageFile1').get(0).files[0]);
+        formData.append('app_id',$('#appid').val())
+        var appsecret = $('#appsecret').val()
+        $.ajax({
+            url:'http://de.suvvm.work:18889/toad_ocr/process',
+            type:'post',
+            data: formData,
+            headers: {
+           'Basic-Token': $.md5(appsecret+formData.size),
+            },
+            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+            processData: false,
+            success:function(res) {
+                console.log(res);
+                if(res.code=="0"){
+                    var map=['0','1','2','3','4','5','6','7','8',
+                             '9','a','b','c','d','e','f','g','h',
+                             'i','j','k','l','m','n', 'o','p','q',
+                             'r','s','t','u','v','w','x','y','z',
+                             'A','B','C','D','E','F','G','H','I',
+                             'J','K','L','M','N','O','P','Q','R',
+                             'S','T','U','V','W','X','Y','Z'];
+                    var value=''
+                    for (var i=0;i<res.label.length;i++)
+                        value+=map[res.label[i]]
+                    document.getElementById("txtAreaParsedResult").innerHTML=value
+                } else{
+                    alert(res.message)
+                    console.log(res);
+                }
+                },
+            error:function(res){
+                console.log(res);
+                alert(res.responseJSON.message);
+                console.log(res.responseJSON.message);
+            }
+        })
+    }
+
+</script>
+
+</html>

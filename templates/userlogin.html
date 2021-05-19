@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="copyright" content="http://vjp.suvvm.work/getting-start/tags-map/"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>免费在线文字识别－OCRServer</title>
+	<meta name="keywords" content="图片文字识别"/>
+	<link rel="icon" href="/static/images/logo.png"/>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/sources/magnificPopup.css">
+    <link rel="stylesheet" href="/static/web/css/userregister.css"/>
+	<link rel="stylesheet" type="text/css" href="/static/sources/lazy.css">
+
+</head>
+<body>
+	<div id="header">
+		<div class="row">
+			<div class="span2">
+				<a href="javascript:if(confirm('欢迎使用orc文字识别'))window.location.href='/ocr_app/hello/'" id="logo" title="ocr文字识别">
+                    <div><h1>ToadOCR</h1></div>
+				</a>
+			</div>
+			<div class="span10" style="margin-top: 21px;"></div>
+		</div>
+	</div>
+	<div id="content">
+        <div class="login-content">
+		<form class="submit-form" action="/ocr_app/login/" method="post">
+			<span class="errorcode1"><pre>帐号未注册过，您可以去注册</pre></span>
+            {% csrf_token %}
+			<input type="text" placeholder="手机号" id="usertel" name="usertel" />
+			<input type="password" placeholder="密码" id="password" name="password"/>
+			<button id="login">登录</button>
+			<p><a href="#">忘记密码</a> | <a href="/ocr_app/userregister">注册</a></p>
+		</form>
+        </div>
+    </div>
+    <br />
+  </div>
+  <div class="bigborder"></div>
+  <div class="row">
+  	<div class="span12 footer">
+  		<div class="span2 footer-logo">
+    		<a href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/'" title="ToadOCR文字识别">
+					<img src="/static/images/logo.png">
+			</a>
+    	</div>
+    	<div class="span8 footerbody">
+    		<ul class="footer-mes">
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/faq.html'" title="ToadOCR常见问题">FAQ</a></li>
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/feedback.html'" title="ToadOCR交流反馈">交流反馈</a></li>
+					<li><a href="##">免责声明</a></li>
+					<li class="mobileHidden"><a href="http://vjp.suvvm.work/getting-start/tags-map/feedback.html">support@qdu.com</a></li>
+			</ul>
+    	</div>
+			<div class="span2 footershare">
+				<div class="bshare">
+				</div>
+			</div>
+  	</div>
+  </div>
+	<div class="bigborder2"></div>
+	<div class="row">
+		<div class="span12 copyright">
+      <p>© 2021 http://vjp.suvvm.work/<a style="color: #b5b5b5;" href="javascript:if(confirm(''))window.location='http://www.beian.miit.gov.cn/'" target="_blank">鲁ICP备16041389号-3</a></p>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="/static/sources/magnificPopup.js"></script>
+	<script src="/static/sources/lazy.js"></script>
+	<script src="/static/sources/plugins.js"></script>
+	<script src="/static/sources/script.js"></script>
+	<script src="/static/sources/jqueryval.js"></script>
+</body>
+
+<script>
+
+</script>
+
+</html>

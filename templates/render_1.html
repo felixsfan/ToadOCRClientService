@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录失败</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="jumbotron">
+				<h3 class="text-center">
+					登录失败
+				</h3>
+				<p class="text-center text-error">
+					{{ msg }}
+				</p>
+				<p class="text-center text-warning">
+					 <b id="second">5</b>秒后重新登录&nbsp;<a href="javascript:goBack();">返回</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    var sec = document.getElementById("second");
+    var i = 5;
+    var timer = setInterval(function(){
+        i--;
+        sec.innerHTML = i;
+        if(i==1){
+            window.location.href = "/ocr_app/userlogin/";
+        }
+        },1000);
+
+    function goBack(){
+        window.history.go(-1);
+    }
+ </script>
+</body>
+</html>

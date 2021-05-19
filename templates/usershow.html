@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+    <link rel="icon" href="/static/images/logo.png"/>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/sources/lazy.css">
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+<div id="header">
+		<div class="row">
+			<div class="span2">
+				<a href="javascript:if(confirm('欢迎使用orc文字识别'))window.location.href='/ocr_app/hello/'" id="logo" title="ocr文字识别">
+                    <div><h1>ToadOCR</h1></div>
+				</a>
+			</div>
+			<div class="span10" style="margin-top: 21px;"></div>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3>
+				用户信息
+			</h3>
+			<table class="table" id="user">
+				<thead>
+					<tr>
+						<th>
+							账号
+						</th>
+						<th>
+							密码
+						</th>
+						<th>
+							上次登录
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3>
+				开通的服务
+			</h3>
+			<table class="table" id="app">
+				<thead>
+					<tr>
+						<th>
+							服务名称
+						</th>
+						<th>
+							appid
+						</th>
+						<th>
+							appsecret
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="bigborder"></div>
+  <div class="row">
+  	<div class="span12 footer">
+  		<div class="span2 footer-logo">
+    		<a href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/'" title="ToadOCR文字识别">
+					<img src="/static/images/logo.png">
+			</a>
+    	</div>
+    	<div class="span8 footerbody">
+    		<ul class="footer-mes">
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/faq.html'" title="ToadOCR常见问题">FAQ</a></li>
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/feedback.html'" title="ToadOCR交流反馈">交流反馈</a></li>
+					<li><a href="##">免责声明</a></li>
+					<li class="mobileHidden"><a href="http://vjp.suvvm.work/getting-start/tags-map/feedback.html">support@qdu.com</a></li>
+			</ul>
+    	</div>
+			<div class="span2 footershare">
+				<div class="bshare">
+				</div>
+			</div>
+  	</div>
+  </div>
+	<div class="bigborder2"></div>
+	<div class="row">
+		<div class="span12 copyright">
+      <p>© 2021 http://vjp.suvvm.work/<a style="color: #b5b5b5;" href="javascript:if(confirm(''))window.location='http://www.beian.miit.gov.cn/'" target="_blank">鲁ICP备16041389号-3</a></p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.ajax({
+            url:'/ocr_app/get_info/',
+            type:'post',
+            contentType:"application/json",
+            success:function(res) {
+                console.log(res);
+                console.log(typeof (res));
+                var user = JSON.parse(res.userset);
+                for(var i=0;i<user.length;i++) {
+                    $("#user").append(
+                        "<tbody><tr> "
+                        + "<td>"+user[i]['pk']+"</td>"
+                        + "<td>"+user[i]['fields']['password']+"</td>"
+                        + "<td>"+user[i]['fields']['date']+"</td>"
+                        + "</tr></tbody>"
+                    )
+                }
+                var app = JSON.parse(res.appset);
+
+                for(var i=0;i<user.length;i++) {
+                    $("#app").append(
+                        "<tbody><tr> "
+                        + "<td>"+app[i]['fields']['AppName']+"</td>"
+                        + "<td>"+app[i]['fields']['appid']+"</td>"
+                        + "<td>"+app[i]['fields']['appsecret']+"</td>"
+                        + "</tr></tbody>"
+                    )
+                }
+                },
+            error:function(res){
+                console.log(res);
+            }
+        })
+});
+</script>
+</html>

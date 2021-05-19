@@ -1,0 +1,155 @@
+
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="copyright" content="http://vjp.suvvm.work/getting-start/tags-map/"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>免费在线文字识别－OCRServer</title>
+	<meta name="keywords" content="图片文字识别"/>
+	<link rel="icon" href="/static/images/logo.png"/>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/sources/lazy.css">
+    <link rel="stylesheet" type="text/css" href="/static/sources/magnificPopup.css">
+    <link rel="stylesheet" href="/static/web/css/userregister.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>用户注册</title>
+</head>
+<body>
+	<div id="header">
+		<div class="row">
+			<div class="span2">
+				<a href="javascript:if(confirm('欢迎使用orc文字识别'))window.location.href='/ocr_app/hello/'" id="logo" title="ocr文字识别">
+                    <div><h1>ToadOCR</h1></div>
+				</a>
+			</div>
+			<div class="span10" style="margin-top: 21px;"></div>
+		</div>
+	</div>
+	<div class="register-content">
+		<div class="register-logo">
+			<span>已有账号，<a href="/ocr_app/userlogin" style="color:#067c57">马上登录</a></span>
+			<div class="clear-fix"></div>
+		</div>
+
+		<div class="register-form">
+			<div class="form-header">
+				<p>注册账户</p>
+			</div>
+			<div class="form-content">
+				<input type="text" id="usertel" placeholder="输入手机号" onblur="checkUsertel()"/></p>
+				<span class="sendcode" onclick="sendcode()">发送验证码</span><input type="text" id="verifycode" placeholder="输入验证码" /></p>
+				<input type="password" id="password" placeholder="6~20位密码（数字与字母组合）" onblur="checkPassword()"/></p>
+				<button id="register" onclick="register()">注册</button>
+			</div>
+		</div>
+	</div>
+    <br />
+  </div>
+  <div class="bigborder"></div>
+  <div class="row">
+  	<div class="span12 footer">
+  		<div class="span2 footer-logo">
+    		<a href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/'" title="ToadOCR文字识别">
+					<img src="/static/images/logo.png">
+			</a>
+    	</div>
+    	<div class="span8 footerbody">
+    		<ul class="footer-mes">
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/faq.html'" title="ToadOCR常见问题">FAQ</a></li>
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/feedback.html'" title="ToadOCR交流反馈">交流反馈</a></li>
+					<li><a href="##">免责声明</a></li>
+					<li class="mobileHidden"><a href="http://vjp.suvvm.work/getting-start/tags-map/feedback.html">support@qdu.com</a></li>
+			</ul>
+    	</div>
+			<div class="span2 footershare">
+				<div class="bshare">
+				</div>
+			</div>
+  	</div>
+  </div>
+	<div class="bigborder2"></div>
+	<div class="row">
+		<div class="span12 copyright">
+      <p>© 2021 http://vjp.suvvm.work/<a style="color: #b5b5b5;" href="javascript:if(confirm(''))window.location='http://www.beian.miit.gov.cn/'" target="_blank">鲁ICP备16041389号-3</a></p>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="/static/sources/magnificPopup.js"></script>
+	<script src="/static/sources/lazy.js"></script>
+	<script src="/static/sources/plugins.js"></script>
+	<script src="/static/sources/script.js"></script>
+	<script src="/static/sources/jqueryval.js"></script>
+</body>
+
+<script>
+    client_verify_code ="";
+    for(var i=0;i<5;i++) {
+        client_verify_code+=Math.floor(Math.random()*10);
+    }
+function sendcode() {
+    var tel=$('#usertel').val()
+    client_verify_code ="";
+    for(var i=0;i<5;i++) {
+        client_verify_code+=Math.floor(Math.random()*10);
+    }
+    alert(client_verify_code)
+    $.ajax({
+            url:'http://de.suvvm.work:18889/toad_ocr/send/sms',
+            type:'post',
+            data: JSON.stringify({p_num:tel, code:client_verify_code}),
+            contentType: "application/json",
+            success:function(res) {
+                console.log(res);
+                if(res.code=="0"){
+                    alert("发送成功，请您查看手机")
+                } else{
+                    alert(res.message)
+                    console.log(res);
+                }
+                },
+            error:function(res){
+                console.log(res);
+                alert("发送验证码失败")
+            }
+        })
+}
+function register(){
+    var tel=$('#usertel').val()
+    var code_2=$('#verifycode').val()
+    var pwd=$('#password').val()
+    $.ajax({
+            url:'/ocr_app/register/',
+            type:'post',
+        	headers: {
+                "X-CSRFToken": getCookie("csrftoken")
+            },
+            data: JSON.stringify({p_num:tel, client_vcode:client_verify_code,user_verify_code:code_2, password:pwd}),
+            contentType: "application/json",
+            success:function(res) {
+                console.log(res);
+                if(JSON.parse(res).code=="0"){
+                    alert("注册成功");
+                }else {
+                    alert(JSON.parse(res).message)
+                }
+                },
+            error:function(res){
+                console.log(res);
+                alert("注册失败")
+            }
+        })
+}
+function checkUsertel() {
+    var tel = $('#usertel').val()
+    if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(tel))){
+        alert("手机号码有误，请重填");
+        return false;
+    }
+}
+function checkPassword() {
+    var password = $('#password').val()
+
+}
+</script>
+
+</html>
