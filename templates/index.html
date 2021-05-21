@@ -253,14 +253,14 @@
         formData.append('file',$('#imageFile1').get(0).files[0]);
         formData.append('app_id',$('#appid').val())
         var appsecret = $('#appsecret').val()
-
-        {#console.log(formData.get('file').size)#}
+        var content_length = estimateContentLength(formData)
+        console.log(content_length)
         $.ajax({
             url:'http://de.suvvm.work:18889/toad_ocr/process/v2',
             type:'post',
             data: formData,
             headers: {
-           'Basic-Token': $.md5(appsecret+formData.size),
+           'Basic-Token': $.md5(appsecret+content_length),
             },
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
             processData: false,
@@ -290,7 +290,25 @@
             }
         })
     }
-
+    function estimateContentLength(formData) {
+        // Seems to be 44 in WebKit browsers (e.g. Chrome, Safari, etc.),
+        // but varies at least in Firefox.
+        const baseLength = 4; // estimated max value
+        // Seems to be 87 in WebKit browsers (e.g. Chrome, Safari, etc.),
+        // but varies at least in Firefox.
+        const separatorLength = 115; // estimated max value
+        let length = baseLength;
+        const entries = formData.entries();
+        for (const [key, value] of entries) {
+            length += key.length + separatorLength;
+            if (typeof value === 'object') {
+                length += value.size;
+            } else {
+                length += String(value).length;
+            }
+        }
+        return length;
+    }
 </script>
 
 </html>
