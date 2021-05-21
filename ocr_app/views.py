@@ -53,31 +53,33 @@ def register(request):
     app_info = json.loads(r.text)['app_info']
     appid = app_info['id']
     appsecret = app_info['secret']
-
+    # print(app_info)
     # print(code)
     # print(msg)
     # print(app_info)
     # 持久化到数据库
     if code == 0:
-        try:
 
+        try:
+            pass
             login_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
             models.UserInfo.objects.create(usertel=p_num, password=password, date=login_date)
-            models.AppInfo.objects.create(usertel='17854252033', AppName='文字识别', appid=appid, appsecret=appsecret)
+            models.AppInfo.objects.create(usertel=p_num, AppName='文字识别', appid=appid, appsecret=appsecret)
             # 设置session会话
             request.session['tel'] = p_num
             # 设置存活时间200s
             request.session.set_expiry(200)
 
-        except Exception as ms:
+        except ValueError as e:
             code = 1
-            msg = ms
+            msg = str(e)
     res = {
         'code': code,
         'message': msg,
     }
 
     return HttpResponse(json.dumps(res))
+
 
 def login(request):
     tel = request.POST.get('usertel')
@@ -105,8 +107,8 @@ def login(request):
 
 def get_info(request):
     tel = request.session.get('tel')
-    userset = serializers.serialize("json",UserInfo.objects.filter(usertel=tel))
-    appset = serializers.serialize("json",AppInfo.objects.filter(usertel=tel))
+    userset = serializers.serialize("json", UserInfo.objects.filter(usertel=tel))
+    appset = serializers.serialize("json", AppInfo.objects.filter(usertel=tel))
     data = {
         'userset': userset,
         'appset': appset

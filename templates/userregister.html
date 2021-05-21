@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
-	<meta name="copyright" content="http://vjp.suvvm.work/getting-start/tags-map/"/>
+	<meta name="copyright" content="http://vjp.suvvm.work/about/service-description/"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>免费在线文字识别－OCRServer</title>
 	<meta name="keywords" content="图片文字识别"/>
@@ -49,16 +49,16 @@
   <div class="row">
   	<div class="span12 footer">
   		<div class="span2 footer-logo">
-    		<a href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/'" title="ToadOCR文字识别">
+    		<a href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/about/service-description/'" title="ToadOCR文字识别">
 					<img src="/static/images/logo.png">
 			</a>
     	</div>
     	<div class="span8 footerbody">
     		<ul class="footer-mes">
-					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/faq.html'" title="ToadOCR常见问题">FAQ</a></li>
-					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/getting-start/tags-map/feedback.html'" title="ToadOCR交流反馈">交流反馈</a></li>
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/about/service-description/'" title="ToadOCR常见问题">FAQ</a></li>
+					<li><a target="_blank" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/about/service-description/'" title="ToadOCR交流反馈">交流反馈</a></li>
 					<li><a href="##">免责声明</a></li>
-					<li class="mobileHidden"><a href="http://vjp.suvvm.work/getting-start/tags-map/feedback.html">support@qdu.com</a></li>
+					<li class="mobileHidden"><a href="http://vjp.suvvm.work/about/service-description/">2734804851@qq.com</a></li>
 			</ul>
     	</div>
 			<div class="span2 footershare">
@@ -70,7 +70,7 @@
 	<div class="bigborder2"></div>
 	<div class="row">
 		<div class="span12 copyright">
-      <p>© 2021 http://vjp.suvvm.work/<a style="color: #b5b5b5;" href="javascript:if(confirm(''))window.location='http://www.beian.miit.gov.cn/'" target="_blank">鲁ICP备16041389号-3</a></p>
+      <p>© 2021 http://vjp.suvvm.work/<a style="color: #b5b5b5;" href="javascript:if(confirm(''))window.location='http://vjp.suvvm.work/about/service-description/'" target="_blank">鲁ICP备16041389号-3</a></p>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
@@ -92,7 +92,6 @@ function sendcode() {
     for(var i=0;i<5;i++) {
         client_verify_code+=Math.floor(Math.random()*10);
     }
-    alert(client_verify_code)
     $.ajax({
             url:'http://de.suvvm.work:18889/toad_ocr/send/sms',
             type:'post',
@@ -134,6 +133,12 @@ function register(){
                 console.log(res);
                 if(JSON.parse(res).code=="0"){
                     alert("注册成功");
+                    //延迟一秒跳转登录
+                    setTimeout(function () {
+                        // 这里就是处理的事件
+                        window.location.href = "/ocr_app/userlogin/";
+                        }, 1000);
+
                 }else {
                     alert(JSON.parse(res).message)
                 }

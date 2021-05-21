@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23929190-b68e-40ea-8455-84114ee03ae9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/14988b8d-5400-4e3c-9a43-c757a2f10c50.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/14988b8d-5400-4e3c-9a43-c757a2f10c50.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ocr_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocr_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ocr_server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocr_server/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/userlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userlogin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/userregister.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userregister.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usershow.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usershow.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +75,7 @@
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/web/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -176,7 +178,11 @@
       <workItem from="1621347504845" duration="1114000" />
       <workItem from="1621388934835" duration="27982000" />
       <workItem from="1621420833891" duration="18000" />
-      <workItem from="1621421066256" duration="666000" />
+      <workItem from="1621421066256" duration="895000" />
+      <workItem from="1621437923896" duration="399000" />
+      <workItem from="1621579570999" duration="2087000" />
+      <workItem from="1621584004304" duration="16958000" />
+      <workItem from="1621601256356" duration="362000" />
     </task>
     <servers />
   </component>
