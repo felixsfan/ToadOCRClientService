@@ -80,114 +80,114 @@
 
 		<form class="form-horizontal" id="ocrForm">
 			<input name="__RequestVerificationToken" type="hidden" value="unknown" />
-			<fieldset>
-        <div class="row">
-          <div class="span12">
-            <h3 class="headline">
-            <span>基于神经网络的文字识别演示<i class="mobileHidden"></i></span>
-            </h3>
-          </div>
+            <fieldset>
+                <div class="row">
+                    <div class="span12">
+                        <h3 class="headline">
+                            <span>基于神经网络的文字识别演示<i class="mobileHidden"></i></span>
+                        </h3>
+                    </div>
 
-          <div class="span12">
-            <div class="span4">
-              <p class="diyLabel">上传文件 ( png / jpg )</p>
-            </div>
-            <div class="span8">
-                <input type="file" id="imageFile1" class="form-control choose" onchange="Preview()">
-            </div>
-          </div>
-          <div class="span12 thirdrow">
-            <div class="span4">
-                <p class="diyLabel">填写秘钥</p>
-            </div>
-            <div class="span4">
-                <label class="diyLabel" for="appid">appid:</label>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <input style="display:inline" type="text" id="appid">
-            </div>
-            <div class="span4">
-                <label class="diyLabel" for="appsecret">appsecret:</label>
-                <input style="display:inline" type="text" id="appsecret">
-            </div>
-          </div>
+                    <div class="span12">
+                        <div class="span4">
+                            <p class="diyLabel">上传文件 ( png / jpg )</p>
+                        </div>
+                        <div class="span8">
+                            <input type="file" id="imageFile1" class="form-control choose" onchange="Preview()">
+                        </div>
+                    </div>
+                    <div class="span12 thirdrow">
+                        <div class="span4">
+                            <p class="diyLabel">填写秘钥</p>
+                        </div>
+                        <div class="span4">
+                            <label class="diyLabel" for="appid">appid:</label>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <input style="display:inline" type="text" id="appid">
+                        </div>
+                        <div class="span4">
+                            <label class="diyLabel" for="appsecret">appsecret:</label>
+                            <input style="display:inline" type="text" id="appsecret">
+                        </div>
+                    </div>
 
-          <div class="span12 thirdrow">
-            <div class="span4">
-                <p class="diyLabel">选择神经网络算法</p>
-            </div>
-            <div class="span4">
-              <select id="ocrAlgorithm" class="form-control valid selection">
-                <option value="snn" selected="selected">SNN脉冲神经网络</option>
-                <option value="cnn">CNN卷积神经网络</option>
-              </select>
-            </div>
+                    <div class="span12 thirdrow">
+                        <div class="span4">
+                            <p class="diyLabel">选择神经网络算法</p>
+                        </div>
+                        <div class="span4">
+                            <select id="ocrAlgorithm" class="form-control valid selection">
+                                <option value="snn" selected="selected">SNN脉冲神经网络</option>
+                                <option value="cnn">CNN卷积神经网络</option>
+                            </select>
+                        </div>
 
-            <div class="span2" id="btnStartOCR"><a class="btn btn-large btn-green-light" onclick="doStart()">开始</a></div>
-            <div class="span2" id="btnCancel"><a class="btn btn-large btn-green-light" onclick="Clear()">重置</a></div>
-          </div>
+                        <div class="span2" id="btnStartOCR"><a class="btn btn-large btn-green-light" onclick="doStart()">开始</a></div>
+                        <div class="span2" id="btnCancel"><a class="btn btn-large btn-green-light" onclick="Clear()">重置</a></div>
+                    </div>
 
-          <div id="sucOrErrMesgMainDiv" class="span12" style="display:none">
-            <div id="sucOrErrMesgDiv" class="alert alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span id="sucOrErrMessage"></span>
-            </div>
-          </div>
+                    <div id="sucOrErrMesgMainDiv" class="span12" style="display:none">
+                        <div id="sucOrErrMesgDiv" class="alert alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <span id="sucOrErrMessage"></span>
+                        </div>
+                    </div>
 
-          <div id="animatedProgress" class="span12" style="display: none">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 progress progress-striped active">
-                  <div class="progress-bar" style="width: 100%"></div>
-              </div>
-          </div>
+                    <div id="animatedProgress" class="span12" style="display: none">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 progress progress-striped active">
+                            <div class="progress-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
 
-          <div style=" clear:both; margin-top:50px !important;"></div>
-        <div class="container" >
-            <div class="row clearfix">
-                <div class="col-md-4 column">
+                    <div style=" clear:both; margin-top:50px !important;"></div>
+                    <div class="container" >
+                        <div class="row clearfix">
+                            <div class="col-md-4 column">
 
-                </div>
-                <div class="col-md-4 column" id="foo">
+                            </div>
+                            <div class="col-md-4 column" id="foo">
 
-                </div>
-                <div class="col-md-4 column">
+                            </div>
+                            <div class="col-md-4 column">
 
-                </div>
-            </div>
-          <div class="span12">
-            <div id="imagePanel" class="span5 borderspanblue">
-              <div class="imagearea">
-                <h3>图片预览</h3>
-              </div>
-              <div class="panel-body">
-                <div id="filedrag" style="height: 80%; width:95%; display: block">
-                	你也可以把图片拖拽到这里
-                </div>
-                <img id="previewImage" class="img-responsive" style="float:left; height:80%; width:95%; display: block" />
-              </div>
-              <div>
-                <h4 id="previewText" style="color: #337ab7; margin: 10px; font-size: 14px;"></h4>
-              </div>
-            </div>
+                            </div>
+                        </div>
+                        <div class="span12">
+                            <div id="imagePanel" class="span5 borderspanblue">
+                                <div class="imagearea">
+                                    <h3>图片预览</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="filedrag" style="height: 80%; width:95%; display: block">
+                                        你也可以把图片拖拽到这里
+                                    </div>
+                                    <img id="previewImage" class="img-responsive" style="float:left; height:80%; width:95%; display: block" />
+                                </div>
+                                <div>
+                                    <h4 id="previewText" style="color: #337ab7; margin: 10px; font-size: 14px;"></h4>
+                                </div>
+                            </div>
 
-            <div class="span2" style="padding-right: 12px;">
-              </br>
-            </div>
+                            <div class="span2" style="padding-right: 12px;">
+                                </br>
+                            </div>
 
-            <div id="resultPanel" class="span5 borderspan" >
-              <div class="resultarea">
-                <h3>识别结果</h3>
-              </div>
-                <div>
-                <textarea class="form-control" cols="20" id="txtAreaParsedResult" name="parsedResult" rows="2" style="height:102px; width:85%; margin-left:28px;"></textarea>
-                </div>
-              <div>
-                <h4 onclick="resultCopy(this)" id="copyText" style="color: #337ab7; font-size: 14px; float: right; margin-right: 30px; cursor: pointer;">复制</h4>
-                <h4 id="copySuccess" style="color: #3c763d; font-size: 14px; float: right; margin-right: 15px; font-style: italic;"></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-		</form><br/><br/>
+                            <div id="resultPanel" class="span5 borderspan" >
+                                <div class="resultarea">
+                                    <h3>识别结果</h3>
+                                </div>
+                                <div>
+                                    <textarea class="form-control" cols="20" id="txtAreaParsedResult" name="parsedResult" rows="2" style="height:102px; width:85%; margin-left:28px;"></textarea>
+                                </div>
+                                <div>
+                                    <h4 onclick="resultCopy(this)" id="copyText" style="color: #337ab7; font-size: 14px; float: right; margin-right: 30px; cursor: pointer;">复制</h4>
+                                    <h4 id="copySuccess" style="color: #3c763d; font-size: 14px; float: right; margin-right: 15px; font-style: italic;"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </fieldset>
+        </form><br/><br/>
 		<div class="row">
       <div class="span12">
           <h3 class="headline">

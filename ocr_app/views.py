@@ -61,7 +61,6 @@ def register(request):
     if code == 0:
 
         try:
-            pass
             login_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
             models.UserInfo.objects.create(usertel=p_num, password=password, date=login_date)
             models.AppInfo.objects.create(usertel=p_num, AppName='文字识别', appid=appid, appsecret=appsecret)
@@ -91,8 +90,8 @@ def login(request):
         return render(request, "render_1.html", {"msg": "用户未注册", "code": 1})
     elif password == UserSet[0].password:
         # 认证通过
-        # 记录上次登录时间
-        models.UserInfo.objects.filter(usertel=tel).update(date=UserSet[0].date)
+        # # 记录上次登录时间
+        # models.UserInfo.objects.filter(usertel=tel).update(date=UserSet[0].date)
 
         # 设置session会话
         request.session['tel'] = tel
@@ -106,6 +105,7 @@ def login(request):
 
 
 def get_info(request):
+
     tel = request.session.get('tel')
     userset = serializers.serialize("json", UserInfo.objects.filter(usertel=tel))
     appset = serializers.serialize("json", AppInfo.objects.filter(usertel=tel))
@@ -113,4 +113,7 @@ def get_info(request):
         'userset': userset,
         'appset': appset
     }
+    login_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    models.UserInfo.objects.filter(usertel=tel).update(date=login_date)
+    # print(login_date)
     return JsonResponse(data)

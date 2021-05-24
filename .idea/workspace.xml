@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23929190-b68e-40ea-8455-84114ee03ae9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/sources/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sources/spin.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ocr_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocr_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ocr_server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocr_server/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/render_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/render_1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,6 +192,11 @@
       <workItem from="1621750311830" duration="1785000" />
       <workItem from="1621826681808" duration="3490000" />
       <workItem from="1621831917572" duration="2040000" />
+      <workItem from="1621851512471" duration="5936000" />
+      <workItem from="1621859357907" duration="306000" />
+      <workItem from="1621859947284" duration="435000" />
+      <workItem from="1621860718194" duration="230000" />
+      <workItem from="1621860959514" duration="13000" />
     </task>
     <servers />
   </component>
