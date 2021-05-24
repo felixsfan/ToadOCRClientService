@@ -10,11 +10,13 @@
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/static/sources/magnificPopup.css">
 	<link rel="stylesheet" type="text/css" href="/static/sources/lazy.css">
-<style>
+<script type="text/javascript">
 
-</style>
+</script>
 </head>
 <body>
+
+</div>
 	<div id="header">
 		<div class="row">
 			<div class="span2">
@@ -75,6 +77,7 @@
 				</div>
 			</div>
 		</div>
+
 		<form class="form-horizontal" id="ocrForm">
 			<input name="__RequestVerificationToken" type="hidden" value="unknown" />
 			<fieldset>
@@ -93,7 +96,6 @@
                 <input type="file" id="imageFile1" class="form-control choose" onchange="Preview()">
             </div>
           </div>
-
           <div class="span12 thirdrow">
             <div class="span4">
                 <p class="diyLabel">填写秘钥</p>
@@ -138,7 +140,18 @@
           </div>
 
           <div style=" clear:both; margin-top:50px !important;"></div>
+        <div class="container" >
+            <div class="row clearfix">
+                <div class="col-md-4 column">
 
+                </div>
+                <div class="col-md-4 column" id="foo">
+
+                </div>
+                <div class="col-md-4 column">
+
+                </div>
+            </div>
           <div class="span12">
             <div id="imagePanel" class="span5 borderspanblue">
               <div class="imagearea">
@@ -222,12 +235,14 @@
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="/static/sources/spin.min.js"></script>
 	<script src="/static/sources/magnificPopup.js"></script>
 	<script src="/static/sources/lazy.js"></script>
 	<script src="/static/sources/plugins.js"></script>
 	<script src="/static/sources/script.js"></script>
 	<script src="/static/sources/jqueryval.js"></script>
     <script src="/static/sources/jquery.md5.js"></script>
+    <script src="/static/sources/spin.min.js"></script>
 </body>
 
 <script>
@@ -248,6 +263,29 @@
     }
 
     function doStart(){
+     var opts = {
+     lines: 13, // loading小块的数量
+     length: 7, // 小块的长度
+     width: 4, // 小块的宽度
+     radius: 10, // 整个圆形的半径
+     corners: 1, // 小块的圆角，越大则越圆
+     rotate: 0, // loading动画的旋转度数，貌似没什么实际作用
+     color: '#000', // 颜色
+     speed: 1, // 变换速度
+     trail: 60, // 余晖的百分比
+     shadow: false, // 是否渲染出阴影
+     hwaccel: false, // 是否启用硬件加速
+     className: 'spinner', // 给loading添加的css样式名
+     zIndex: 2e9, // The z-index (defaults to 2000000000)
+     top: 'auto', // Top position relative to parent in px
+     left:'85px' // Left position relative to parent in px
+          };
+
+     var target = document.getElementById('foo');
+     //初始化spin-初始化函数中
+     var spinner = new Spinner(opts);//建议将spinner作为全局变量，以方便后面的调用。
+        //显示进度动画
+        spinner.spin(target);
         var formData = new FormData();
         formData.append('net_flag',$('#ocrAlgorithm').val());
         formData.append('file',$('#imageFile1').get(0).files[0]);
@@ -265,6 +303,8 @@
             contentType: false, // 告诉jQuery不要去设置Content-Type请求头
             processData: false,
             success:function(res) {
+                //隐藏进度动画
+                spinner.stop();//原文中未提及
                 console.log(res);
                 if(res.code=="0"){
                     var map=['0','1','2','3','4','5','6','7','8',
@@ -284,6 +324,7 @@
                 }
                 },
             error:function(res){
+                spinner.stop();//隐藏进度动画
                 console.log(res);
                 alert(res.responseJSON.message);
                 console.log(res.responseJSON.message);

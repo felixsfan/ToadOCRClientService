@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23929190-b68e-40ea-8455-84114ee03ae9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/sources/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/sources/spin.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,27 +67,30 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1sA2ZUN0lKKUv02f5tHohRUhB6t" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/sources" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\workspace\ocr_server\static\web\js" />
-      <recent name="E:\workspace\ocr_server\static" />
-      <recent name="E:\workspace\ocr_server\static\images" />
-      <recent name="E:\workspace\ocr_server" />
-      <recent name="E:\workspace\ocr_server\templates\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\workspace\ocr_server\static\sources" />
       <recent name="E:\workspace\ocr_server\templates" />
       <recent name="E:\workspace\ocr_server\static" />
       <recent name="E:\workspace\ocr_server\static\images\share" />
       <recent name="E:\workspace\ocr_server\ocr_app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\ocr_server\static\sources" />
+      <recent name="E:\workspace\ocr_server\static\web\js" />
+      <recent name="E:\workspace\ocr_server\static" />
+      <recent name="E:\workspace\ocr_server\static\images" />
+      <recent name="E:\workspace\ocr_server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -182,7 +187,9 @@
       <workItem from="1621604114659" duration="11000" />
       <workItem from="1621610826518" duration="480000" />
       <workItem from="1621654589236" duration="608000" />
-      <workItem from="1621750311830" duration="1027000" />
+      <workItem from="1621750311830" duration="1785000" />
+      <workItem from="1621826681808" duration="3490000" />
+      <workItem from="1621831917572" duration="2040000" />
     </task>
     <servers />
   </component>
@@ -201,5 +208,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
